@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BierShop9.Services.Interfaces;
 using BierShop9.ViewModels;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using AutoMapper;
 
 namespace BierShop9.Controllers
@@ -13,28 +12,38 @@ namespace BierShop9.Controllers
 
         public AlcoholPerController(IBierService bierService, IMapper mapper)
         {
-            _mapper = mapper;
             _bierService = bierService;
+            _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            // Show empty table until user searches
+            return View(new List<BeersVM>());
+        }
+
+        [HttpPost]
+        [HttpPost]
+        public async Task<IActionResult> Index(decimal alcoholPercentage)
         {
             try
             {
-                var lstBeers = await _bierService.GetAllBeersAsync();
+                var beers = await _bierService.GetAllBeersAsync();
 
-                if (lstBeers != null)
-                {
-                    var beersVMs = _mapper.Map<List<BeersVM>>(lstBeers);
-                    return View(beersVMs);
-                }
+                var filtered = beers
+                    .Where(b => b.Alcohol.HasValue && b.Alcohol.Value == alcoholPercentage)
+                    .ToList();
+
+                var vm = _mapper.Map<List<BeersVM>>(filtered);
+
+                return View(vm);
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "Er is een fout opgetreden bij het ophalen van de bieren: " + ex.Message);
+                ModelState.AddModelError("", "Error loading beers: " + ex.Message);
+                return View(new List<BeersVM>());
             }
-
-            return View();
         }
+
     }
 }
