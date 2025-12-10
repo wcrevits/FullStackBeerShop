@@ -63,5 +63,13 @@
 </table>
 
 <script>
-    new DataTable('#beers');
+    new DataTable('#beers', {
+        layout: {
+            labels: {
+                pageLength: "Toon _MENU_ items",
+                search: "Zoeken:",
+                info: "Weergeven van _START_ tot _END_ van _TOTAL_ bieren"
+            }
+        }
+    });
 </script>

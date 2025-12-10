@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BierShop9")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85b753e8a97e44bc94d9a893ae0794213dd6221d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BierShop9")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BierShop9")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

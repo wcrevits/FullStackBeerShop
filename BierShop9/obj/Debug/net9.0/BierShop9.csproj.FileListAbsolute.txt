@@ -334,3 +334,4 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\obj\Debug\net9.0\BierShop9.sourcelink.json
