@@ -1,6 +1,7 @@
 ﻿using BierShop9.Domain.DataDB;
 using BierShop9.Domain.EntitiesDB;
 using BierShop9.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,9 @@ namespace BierShop9.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Brewery>?> GetAllAsync()
+        public async Task<IEnumerable<Brewery>?> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Breweries.ToListAsync();
         }
 
         public Task UpdateAsync(Brewery entity)

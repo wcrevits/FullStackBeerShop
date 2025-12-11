@@ -1,4 +1,6 @@
 ﻿using BierShop9.Domain.EntitiesDB;
+using BierShop9.Repositories;
+using BierShop9.Repositories.Interfaces;
 using BierShop9.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,13 @@ namespace BierShop9.Services
 {
     public class BreweryService : IService<Brewery>
     {
+
+        private readonly IDAO<Brewery> _context;
+
+        public BreweryService(IDAO<Brewery> context)
+        {
+            _context = context;
+        }
         
         public Task AddAsync(Brewery entity)
         {
@@ -27,9 +36,9 @@ namespace BierShop9.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Brewery>?> GetAllAsync()
+        public async Task<IEnumerable<Brewery>?> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.GetAllAsync();
         }
 
         public Task UpdateAsync(Brewery entity)

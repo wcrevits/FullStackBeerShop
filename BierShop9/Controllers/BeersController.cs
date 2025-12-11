@@ -87,29 +87,40 @@ namespace BierShop9.Controllers
 
                 return View(breweryBeersVM);
             }
-            catch (Exception ex)
+            catch
             {
 
 
                 // Optioneel: Toon een generieke foutmelding aan de gebruiker
                 ViewBag.ErrorMessage = "Er is een probleem opgetreden bij het laden van de gegevens.";
-                return View("Error"); // Ga naar een foutpagina genaamd "Error"
+                return View("Error");
             }
         }
-        /*
+
         [HttpPost]
         public async Task<IActionResult> GetBeersByBreweriesVM(BreweryBeersVM entity)
         {
             if (entity.BreweryNumber == null)
             {
-                return NotFound();
+                ModelState.AddModelError("", "Selecteer een brouwerij.");
             }
-            try
+            else
             {
-
+                var beers = await _bierService.GetBeersByBreweries(entity.BreweryNumber.Value);
+                entity.Beers = _mapper.Map<List<BeersVM>>(beers);
             }
+
+            entity.Breweries = new SelectList(
+                await _breweryService.GetAllAsync(),
+                "Brouwernr",
+                "Naam",
+                entity.BreweryNumber 
+            );
+
+            return View("GetBeersByBreweriesVM", entity);
         }
-        */
+
+
 
     }
 }
