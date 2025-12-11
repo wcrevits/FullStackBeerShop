@@ -20,6 +20,9 @@ builder.Services.AddDbContext<BeerShopDbContext>(options =>
 builder.Services.AddScoped<IBierDAO, BierDAO>();
 builder.Services.AddScoped<IBierService, BierService>();
 
+builder.Services.AddScoped<IService<Brewery>, BreweryService>();
+builder.Services.AddScoped<IDAO<Brewery>, BreweryDAO>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();

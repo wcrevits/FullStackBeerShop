@@ -14,9 +14,39 @@ namespace BierShop9.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Beer>> GetAllBeersAsync()
+        public Task AddAsync(Beer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(Beer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Beer?> FindbyIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Beer>?> GetAllAsync()
         {
             return await _context.Beers.ToListAsync();
+        }
+
+        public Task<IEnumerable<Beer>> GetBeersByAlcohol(decimal percentage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Beer>> GetBeersByBrewery(int brouwerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(Beer entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace BierShop9.Controllers
         {
             try
             {
-                var beers = await _bierService.GetAllBeersAsync();
+                var beers = await _bierService.GetAllAsync();
 
                 var filtered = beers
                     .Where(b => b.Alcohol.HasValue && b.Alcohol.Value == alcoholPercentage)

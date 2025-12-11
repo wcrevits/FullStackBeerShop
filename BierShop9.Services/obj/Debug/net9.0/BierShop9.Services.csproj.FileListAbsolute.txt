@@ -15,3 +15,4 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Services\bin\Debug\net9.0\BierShop9.Repositories.pdb
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Services\obj\Debug\net9.0\BierShop9.Services.csproj.AssemblyReference.cache
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Services\obj\Debug\net9.0\BierShop.E46B28CA.Up2Date
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Services\obj\Debug\net9.0\BierShop9.Services.sourcelink.json

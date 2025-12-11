@@ -6,16 +6,46 @@ namespace BierShop9.Services
 {
     public class BierService : IBierService
     {
-        private readonly IBierDAO _bierDAO;
+        private IBierDAO _beerDAO;
 
-        public BierService(IBierDAO bierDAO)
+        public BierService(IBierDAO beerDAO) 
         {
-            _bierDAO = bierDAO;
+            _beerDAO = beerDAO;
         }
 
-        public async Task<IEnumerable<Beer>> GetAllBeersAsync()
+        public Task AddAsync(Beer entity)
         {
-            return await _bierDAO.GetAllBeersAsync();
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(Beer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Beer?> FindbyIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Beer>?> GetAllAsync()
+        {
+            return await _beerDAO.GetAllAsync();
+        }
+
+        public Task<IEnumerable<Beer>> GetAllBeersByAlcohol()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Beer>> GetBeersByBreweries()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(Beer entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

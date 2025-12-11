@@ -13,3 +13,4 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Repositories\bin\Debug\net9.0\BierShop9.Domain.pdb
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Repositories\obj\Debug\net9.0\BierShop9.Repositories.csproj.AssemblyReference.cache
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Repositories\obj\Debug\net9.0\BierShop.D6023094.Up2Date
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9.Repositories\obj\Debug\net9.0\BierShop9.Repositories.sourcelink.json

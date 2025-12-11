@@ -21,11 +21,11 @@ namespace BierShop9.Controllers
         {
             try
             {
-                var lstBeers = await _bierService.GetAllBeersAsync();
+                var lstBeers = await _bierService.GetAllAsync();
 
                 if (lstBeers != null)
                 {
-                    var beersVMs = _mapper.Map<List<BeersVM>>(lstBeers);
+                    List<BeersVM> beersVMs = _mapper.Map<List<BeersVM>>(lstBeers);
                     return View(beersVMs);
                 }
             }
