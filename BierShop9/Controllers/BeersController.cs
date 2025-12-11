@@ -1,20 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using BierShop9.Domain.EntitiesDB;
+using BierShop9.Services;
 using BierShop9.Services.Interfaces;
 using BierShop9.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BierShop9.Controllers
 {
     public class BeersController : Controller
     {
         private readonly IBierService _bierService;
+        private readonly IService<Brewery> _breweryService;
         private readonly IMapper _mapper;
 
-        public BeersController (IBierService bierService, IMapper mapper)
+        public BeersController (IBierService bierService, IMapper mapper, IService<Brewery> breweryService)
         {
             _mapper = mapper;
             _bierService = bierService;
+            _breweryService = breweryService;
         }
 
         public async Task<IActionResult> Index()
@@ -23,11 +28,8 @@ namespace BierShop9.Controllers
             {
                 var lstBeers = await _bierService.GetAllAsync();
 
-                if (lstBeers != null)
-                {
-                    List<BeersVM> beersVMs = _mapper.Map<List<BeersVM>>(lstBeers);
-                    return View(beersVMs);
-                }
+                List<BeersVM> beersVMs = _mapper.Map<List<BeersVM>>(lstBeers);
+                return View(beersVMs);
             }
             catch (Exception ex)
             {
@@ -36,5 +38,78 @@ namespace BierShop9.Controllers
 
             return View();
         }
+        /// <summary>
+        /// Returns a list of beers by inputed alcohol percentage
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ListAlcohol()
+    {
+        return View(new BeerSearchByAlcoholVM
+        {
+            Beers = new List<BeersVM>()
+        });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ListAlcohol(BeerSearchByAlcoholVM model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("ListAlcohol", model);
+        }
+
+        try
+        {
+            var beers = await _bierService.GetAllBeersByAlcohol(model.AlcoholPercentage!.Value);
+            model.Beers = _mapper.Map<List<BeersVM>>(beers);
+        }
+        catch
+        {
+            ModelState.AddModelError("", "Er ging iets mis bij het ophalen van de bieren.");
+        }
+
+        return View("ListAlcohol", model);
+    }
+
+
+        public async Task<ActionResult> GetBeersByBreweriesVM()
+        {
+
+            try
+            {
+                BreweryBeersVM breweryBeersVM = new BreweryBeersVM();
+
+                breweryBeersVM.Breweries = new SelectList(
+                    await _breweryService.GetAllAsync(),
+                    "Brouwernr",
+                    "Naam"
+                );
+
+                return View(breweryBeersVM);
+            }
+            catch (Exception ex)
+            {
+
+
+                // Optioneel: Toon een generieke foutmelding aan de gebruiker
+                ViewBag.ErrorMessage = "Er is een probleem opgetreden bij het laden van de gegevens.";
+                return View("Error"); // Ga naar een foutpagina genaamd "Error"
+            }
+        }
+        /*
+        [HttpPost]
+        public async Task<IActionResult> GetBeersByBreweriesVM(BreweryBeersVM entity)
+        {
+            if (entity.BreweryNumber == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+
+            }
+        }
+        */
+
     }
 }

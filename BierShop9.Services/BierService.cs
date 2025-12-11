@@ -33,14 +33,14 @@ namespace BierShop9.Services
             return await _beerDAO.GetAllAsync();
         }
 
-        public Task<IEnumerable<Beer>> GetAllBeersByAlcohol()
+        public async Task<IEnumerable<Beer>> GetAllBeersByAlcohol(decimal percentage)
         {
-            throw new NotImplementedException();
+            return await _beerDAO.GetBeersByAlcohol(percentage);
         }
 
-        public Task<IEnumerable<Beer>> GetBeersByBreweries()
+        public async Task<IEnumerable<Beer>> GetBeersByBreweries(int breweryId)
         {
-            throw new NotImplementedException();
+            return await _beerDAO.GetBeersByBrewery(breweryId);
         }
 
         public Task UpdateAsync(Beer entity)

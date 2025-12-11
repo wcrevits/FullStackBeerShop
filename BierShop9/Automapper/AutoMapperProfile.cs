@@ -11,10 +11,10 @@ namespace BeerShop2.AutoMapper
         {
             CreateMap<Beer, BeersVM>()
                 
-                .ForMember(dest => dest.BreweryName,
+                .ForMember(dest => dest.BrouwerNaam,
                     opt => opt.MapFrom(src => src.BrouwernrNavigation.Naam))
 
-                .ForMember(dest => dest.VarietyName,
+                .ForMember(dest => dest.SoortNaam,
                     opt => opt.MapFrom(src => src.SoortnrNavigation.Soortnaam));
         }
     }

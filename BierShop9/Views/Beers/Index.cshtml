@@ -1,70 +1,34 @@
 ﻿@model IEnumerable<BierShop9.ViewModels.BeersVM>
 
-@{
-    ViewData["Title"] = "View";
-}
+<h2>Beers</h2>
 
-<link rel="stylesheet"
-      href="https://cdn.datatables.net/2.3.5/css/dataTables.dataTables.css" />
 
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdn.datatables.net/2.3.5/js/dataTables.js"></script>
-
-<h1>View</h1>
-
-<table id="beers" class="display table">
+<table id="beerTable" class="display">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BreweryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VarietyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Alcohol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th></th>
+            <th>Name</th>
+            <th>Alcohol %</th>
+            <th>Brewery</th>
+            <th>Variety</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BreweryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VarietyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alcohol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.Naam</td>
+                <td>@b.Alcohol</td>
+                <td>@b.BrouwerNaam</td>
+                <td>@b.SoortNaam</td>
+            </tr>
+        }
     </tbody>
 </table>
 
-<script>
-    new DataTable('#beers', {
-        language: {
-            lengthMenu: "Show _MENU_ entries"
-        }
-    });
-</script>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#beerTable').DataTable({});
+        });
+    </script>
+}

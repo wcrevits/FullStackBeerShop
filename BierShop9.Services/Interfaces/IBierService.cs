@@ -20,7 +20,7 @@ namespace BierShop9.Services.Interfaces
 {
     public interface IBierService : IService<Beer>
     {
-        Task<IEnumerable<Beer>> GetAllBeersByAlcohol();
-        Task<IEnumerable<Beer>> GetBeersByBreweries();
+        Task<IEnumerable<Beer>> GetAllBeersByAlcohol(decimal percentage);
+        Task<IEnumerable<Beer>> GetBeersByBreweries(int breweryId);
     }
 }

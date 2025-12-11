@@ -6,9 +6,9 @@ namespace BierShop9.ViewModels
     {
         public string Naam { get; set; }
 
-        public string? BreweryName { get; set; }
+        public string? BrouwerNaam { get; set; }
 
-        public string? VarietyName { get; set; }
+        public string? SoortNaam { get; set; }
 
         public decimal? Alcohol { get; set; }
 

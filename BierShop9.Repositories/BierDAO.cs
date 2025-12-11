@@ -2,6 +2,7 @@
 using BierShop9.Repositories.Interfaces;
 using BierShop9.Domain.DataDB;
 using BierShop9.Domain.EntitiesDB;
+using System.Linq.Expressions;
 
 namespace BierShop9.Repositories
 {
@@ -17,7 +18,7 @@ namespace BierShop9.Repositories
         public Task AddAsync(Beer entity)
         {
             throw new NotImplementedException();
-        }
+        } 
 
         public Task DeleteAsync(Beer entity)
         {
@@ -31,17 +32,30 @@ namespace BierShop9.Repositories
 
         public async Task<IEnumerable<Beer>?> GetAllAsync()
         {
-            return await _context.Beers.ToListAsync();
+            return await _context.Beers
+                .Include(b => b.BrouwernrNavigation)
+                .Include(b => b.SoortnrNavigation)
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<Beer>> GetBeersByAlcohol(decimal percentage)
+        public async Task<IEnumerable<Beer>> GetBeersByAlcohol(decimal percentage)
         {
-            throw new NotImplementedException();
+            return await _context.Beers
+                .Include(b => b.BrouwernrNavigation)
+                .Include(b => b.SoortnrNavigation)
+                .Where(b => b.Alcohol == percentage)
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<Beer>> GetBeersByBrewery(int brouwerId)
+
+        public async Task<IEnumerable<Beer>> GetBeersByBrewery(int brouwerId)
         {
-            throw new NotImplementedException();
+                return await _context.Beers
+                    .Where(b => b.Brouwernr == brouwerId)
+                    .Include(b => b.BrouwernrNavigation)
+                    .Include(b => b.SoortnrNavigation)
+                    .ToListAsync();
+            
         }
 
         public Task UpdateAsync(Beer entity)
