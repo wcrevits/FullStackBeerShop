@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fE0oCFqFYvE=",
+  "dgSpecHash": "j6bdxAQCdww=",
   "success": true,
   "projectFilePath": "C:\\Users\\mijnk\\Documents\\Personal Documents\\School\\2025-2026\\Full stack dev\\BierShop9\\BierShop9\\BierShop9.csproj",
   "expectedPackageFiles": [
@@ -87,7 +87,7 @@
     "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.11\\microsoft.entityframeworkcore.analyzers.9.0.11.nupkg.sha512",
     "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.entityframeworkcore.design\\9.0.11\\microsoft.entityframeworkcore.design.9.0.11.nupkg.sha512",
     "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.11\\microsoft.entityframeworkcore.relational.9.0.11.nupkg.sha512",
-    "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\9.0.0\\microsoft.entityframeworkcore.sqlserver.9.0.0.nupkg.sha512",
+    "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\9.0.11\\microsoft.entityframeworkcore.sqlserver.9.0.11.nupkg.sha512",
     "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.11\\microsoft.extensions.caching.abstractions.9.0.11.nupkg.sha512",
     "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.11\\microsoft.extensions.caching.memory.9.0.11.nupkg.sha512",
     "C:\\Users\\mijnk\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.11\\microsoft.extensions.configuration.abstractions.9.0.11.nupkg.sha512",

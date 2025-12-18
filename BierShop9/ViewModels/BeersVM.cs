@@ -4,7 +4,7 @@ namespace BierShop9.ViewModels
 {
     public class BeersVM
     {
-        public string Naam { get; set; }
+        public string? Naam { get; set; }
 
         public string? BrouwerNaam { get; set; }
 

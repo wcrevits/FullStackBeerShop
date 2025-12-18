@@ -12,6 +12,7 @@
           "BierShop9.Domain": "1.0.0",
           "BierShop9.Services": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "9.0.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.11",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "9.0.11"
         },
         "runtime": {
@@ -1396,7 +1397,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/9.0.0": {
+      "Microsoft.EntityFrameworkCore.SqlServer/9.0.11": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.1.6",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.11",
@@ -1408,8 +1409,8 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.24.52902"
+            "assemblyVersion": "9.0.11.0",
+            "fileVersion": "9.0.1125.51902"
           }
         }
       },
@@ -2246,7 +2247,7 @@
       },
       "BierShop9.Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.11"
         },
         "runtime": {
           "BierShop9.Domain.dll": {
@@ -2867,12 +2868,12 @@
       "path": "microsoft.entityframeworkcore.relational/9.0.11",
       "hashPath": "microsoft.entityframeworkcore.relational.9.0.11.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/9.0.0": {
+    "Microsoft.EntityFrameworkCore.SqlServer/9.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3Y7/3kgz6C5kRFeELLZ5VeIeBlxB31x/ywscbN4r1JqTXIy8WWGo0CqzuOxBy4UzaTzpifElAZvv4fyD3ZQK5w==",
-      "path": "microsoft.entityframeworkcore.sqlserver/9.0.0",
-      "hashPath": "microsoft.entityframeworkcore.sqlserver.9.0.0.nupkg.sha512"
+      "sha512": "sha512-2DqtZXZUI0u40ZIjs8v3c8l1yQ79zMftHO6CIdpH7s+bbkUURruE7ErVWQrPxTbeMyY8P9zEfsrWfpoksZMMvQ==",
+      "path": "microsoft.entityframeworkcore.sqlserver/9.0.11",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.9.0.11.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/9.0.11": {
       "type": "package",

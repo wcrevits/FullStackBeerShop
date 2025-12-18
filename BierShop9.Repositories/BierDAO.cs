@@ -15,9 +15,18 @@ namespace BierShop9.Repositories
             _context = context;
         }
 
-        public Task AddAsync(Beer entity)
+        public async Task AddAsync(Beer entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Added;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
         } 
 
         public Task DeleteAsync(Beer entity)

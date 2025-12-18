@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using BierShop9.Domain.EntitiesDB;
-using BierShop9.Services;
 using BierShop9.Services.Interfaces;
 using BierShop9.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 
 namespace BierShop9.Controllers
 {
@@ -13,13 +12,15 @@ namespace BierShop9.Controllers
     {
         private readonly IBierService _bierService;
         private readonly IService<Brewery> _breweryService;
+        private readonly IService<Variety> _varietyService;
         private readonly IMapper _mapper;
 
-        public BeersController(IBierService bierService, IMapper mapper, IService<Brewery> breweryService)
+        public BeersController(IBierService bierService, IMapper mapper, IService<Brewery> breweryService, IService<Variety> varietyService)
         {
             _mapper = mapper;
             _bierService = bierService;
             _breweryService = breweryService;
+            _varietyService = varietyService;
         }
 
         public async Task<IActionResult> Index()
@@ -72,7 +73,7 @@ namespace BierShop9.Controllers
         }
 
 
-        public async Task<ActionResult> GetBeersByBreweriesVM()
+        public async Task<IActionResult> GetBeersByBreweriesVM()
         {
 
             try
@@ -165,6 +166,117 @@ namespace BierShop9.Controllers
 
             }
             return View();
+        }
+
+        public async Task<IActionResult> GetBeersByBreweriesAjax()
+        {
+
+            try
+            {
+                BreweryBeersVM breweryBeersVM = new BreweryBeersVM();
+
+                breweryBeersVM.Breweries = new SelectList(
+                    await _breweryService.GetAllAsync(),
+                    "Brouwernr",
+                    "Naam"
+                );
+
+                return View(breweryBeersVM);
+            }
+            catch
+            {
+
+
+                // Optioneel: Toon een generieke foutmelding aan de gebruiker
+                ViewBag.ErrorMessage = "Er is een probleem opgetreden bij het laden van de gegevens.";
+                return View("Error");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetBeersByBreweriesAjax(BreweryBeersVM entity)
+        {
+            if (entity.BreweryNumber == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+                var beerLst = await _bierService.GetBeersByBreweries
+               (Convert.ToInt16(entity.BreweryNumber));
+                List<BeersVM> listVM = _mapper.Map<List<BeersVM>>(beerLst);
+
+                // er moet geen lijst met brouwers worden meegegeven
+
+                Thread.Sleep(2000);// mag je natuurlijk weglaten, hier wordt 2 sec. gewacht
+                return PartialView("_SearchBierenPartial", listVM);
+            }
+            catch
+            {
+
+            }
+            return View(entity);
+
+        }
+
+        public async Task<IActionResult> CreateBeer()
+        {
+            try
+            {
+                var createBeerVM = new CreateBeerVM()
+                {
+                    Breweries = new SelectList(await _breweryService.GetAllAsync(),
+                    "Brouwernr", "Naam"),
+
+                    Varieties = new SelectList(await _varietyService.GetAllAsync(),
+                    "Soortnr", "Soortnaam")
+                };
+                return View(createBeerVM);
+            }
+            catch
+            {
+
+                // Optioneel: Toon een generieke foutmelding aan de gebruiker
+                ViewBag.ErrorMessage = "Er is een probleem opgetreden bij het laden van de gegevens.";
+                return View("Error");
+            }
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateBeer(CreateBeerVM model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Beer beer = _mapper.Map<Beer>(model);
+                    await _bierService.AddAsync(beer);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException ex)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
+
+            catch (Exception ex)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "call system administrator.");
+            }
+
+            model.Breweries =
+                new SelectList(await _breweryService.GetAllAsync(), "Brouwernr", "Naam"
+                , model.Brouwernr);
+
+            model.Varieties =
+                new SelectList(await _varietyService.GetAllAsync(), "Soortnr", "Soortnaam"
+                , model.Soortnr);
+
+            return View(model);
+
         }
     }
 }

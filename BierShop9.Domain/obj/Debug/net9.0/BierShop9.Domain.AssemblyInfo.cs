@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BierShop9.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f3c5df7262e1c21f8a7f8c81315480aab7da557")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+476ee32cb1cdd27f318949715d17326c19dfeb7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BierShop9.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BierShop9.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

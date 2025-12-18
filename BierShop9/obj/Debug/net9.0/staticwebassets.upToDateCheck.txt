@@ -11,6 +11,7 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\jquery\dist\jquery.min.js
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.js
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
@@ -35,6 +36,7 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.min.js
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\jquery-validation\LICENSE.md
@@ -62,6 +64,7 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\spinner-sm.gif
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
@@ -115,6 +118,8 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\lib\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.js
+wwwroot\lib\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.min.js
 wwwroot\lib\jquery-validation\dist\additional-methods.js
 wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 wwwroot\lib\jquery-validation\dist\jquery.validate.js

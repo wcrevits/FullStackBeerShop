@@ -352,3 +352,6 @@ C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\Bier
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\bin\Debug\net9.0\libman.json
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\obj\Debug\net9.0\compressed\8gfh8nzwaf-vs3qwh9hx3.gz
+C:\Users\mijnk\Documents\Personal Documents\School\2025-2026\Full stack dev\BierShop9\BierShop9\obj\Debug\net9.0\compressed\ov1d5qkkwy-8ve2wm9mbw.gz

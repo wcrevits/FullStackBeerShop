@@ -23,6 +23,9 @@ builder.Services.AddScoped<IBierService, BierService>();
 builder.Services.AddScoped<IService<Brewery>, BreweryService>();
 builder.Services.AddScoped<IDAO<Brewery>, BreweryDAO>();
 
+builder.Services.AddScoped<IService<Variety>, VarietyService>();
+builder.Services.AddScoped<IDAO<Variety>, VarietyDAO>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();

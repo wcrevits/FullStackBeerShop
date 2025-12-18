@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BierShop9.Domain.EntitiesDB;
 using BierShop9.ViewModels;
-using BierShop9.Domain.EntitiesDB;
 
 namespace BeerShop2.AutoMapper
 {
@@ -16,6 +15,8 @@ namespace BeerShop2.AutoMapper
 
                 .ForMember(dest => dest.SoortNaam,
                     opt => opt.MapFrom(src => src.SoortnrNavigation.Soortnaam));
+
+            CreateMap<CreateBeerVM, Beer>();
         }
     }
 }

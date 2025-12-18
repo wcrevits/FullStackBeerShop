@@ -13,9 +13,9 @@ namespace BierShop9.Services
             _beerDAO = beerDAO;
         }
 
-        public Task AddAsync(Beer entity)
+        public async Task AddAsync(Beer entity)
         {
-            throw new NotImplementedException();
+            await _beerDAO.AddAsync(entity);
         }
 
         public Task DeleteAsync(Beer entity)
