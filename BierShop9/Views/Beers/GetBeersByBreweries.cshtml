@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BierShop9.ViewModels.BeersVM>
+@{
+    ViewData["Title"] = "GetBeersByBreweries";
+}
+
+<h1>GetBeersByBreweries</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GetBeersByBreweries">
+            <div class="form-group">
+                <select id="brouwerId" name="brouwerId" 
+                    asp-items="@ViewBag.lstBrouwer">
+                    <option>---- Select a brewery ----</option>
+                </select>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Model != null) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrouwerNaam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoortNaam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Alcohol)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrouwerNaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoortNaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alcohol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+    }
+    </tbody>
+</table>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $("#brouwerId").on("change", () => {
+            $("form").trigger("submit");
+        })
+    </script>
+}

@@ -15,7 +15,7 @@ namespace BierShop9.Controllers
         private readonly IService<Brewery> _breweryService;
         private readonly IMapper _mapper;
 
-        public BeersController (IBierService bierService, IMapper mapper, IService<Brewery> breweryService)
+        public BeersController(IBierService bierService, IMapper mapper, IService<Brewery> breweryService)
         {
             _mapper = mapper;
             _bierService = bierService;
@@ -43,33 +43,33 @@ namespace BierShop9.Controllers
         /// </summary>
         /// <returns></returns>
         public IActionResult ListAlcohol()
-    {
-        return View(new BeerSearchByAlcoholVM
         {
-            Beers = new List<BeersVM>()
-        });
-    }
+            return View(new BeerSearchByAlcoholVM
+            {
+                Beers = new List<BeersVM>()
+            });
+        }
 
-    [HttpPost]
-    public async Task<IActionResult> ListAlcohol(BeerSearchByAlcoholVM model)
-    {
-        if (!ModelState.IsValid)
+        [HttpPost]
+        public async Task<IActionResult> ListAlcohol(BeerSearchByAlcoholVM model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("ListAlcohol", model);
+            }
+
+            try
+            {
+                var beers = await _bierService.GetAllBeersByAlcohol(model.AlcoholPercentage!.Value);
+                model.Beers = _mapper.Map<List<BeersVM>>(beers);
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Er ging iets mis bij het ophalen van de bieren.");
+            }
+
             return View("ListAlcohol", model);
         }
-
-        try
-        {
-            var beers = await _bierService.GetAllBeersByAlcohol(model.AlcoholPercentage!.Value);
-            model.Beers = _mapper.Map<List<BeersVM>>(beers);
-        }
-        catch
-        {
-            ModelState.AddModelError("", "Er ging iets mis bij het ophalen van de bieren.");
-        }
-
-        return View("ListAlcohol", model);
-    }
 
 
         public async Task<ActionResult> GetBeersByBreweriesVM()
@@ -114,13 +114,57 @@ namespace BierShop9.Controllers
                 await _breweryService.GetAllAsync(),
                 "Brouwernr",
                 "Naam",
-                entity.BreweryNumber 
+                entity.BreweryNumber
             );
 
             return View("GetBeersByBreweriesVM", entity);
         }
 
+        public async Task<IActionResult> GetBeersByBreweries()
+        {
 
+            try
+            {
+                ViewBag.lstBrouwer = new SelectList(
+                    await _breweryService.GetAllAsync(),
+                    "Brouwernr",
+                    "Naam"
+                );
 
+                return View();
+            }
+            catch (Exception ex)
+            {
+                // Toon een foutpagina of een foutmelding aan de gebruiker
+                //ViewBag.ErrorMessage = "Er is een probleem opgetreden bij het ophalen van de lijst met brouwerijen.";
+                //return View("Error"); // Ga naar een foutpagina genaamd "Error"
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetBeersByBreweries(int? brouwerId)
+        {
+            if (brouwerId == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+                var bierList = await _bierService.GetBeersByBreweries
+                    (Convert.ToInt16(brouwerId));
+
+                ViewBag.LstBrouwer = new SelectList(await _breweryService.GetAllAsync(),
+                "Brouwernr", "Naam", brouwerId);
+
+                List<BeersVM> listVM = _mapper.Map<List<BeersVM>>(bierList);
+                return View(listVM);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View();
+        }
     }
 }

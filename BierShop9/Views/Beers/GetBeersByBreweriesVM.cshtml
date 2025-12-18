@@ -80,6 +80,10 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
+    <script>
+        $("#BreweryNumber").on("change", () => {
+            $("form").trigger("submit");
+        })
+    </script>
 }
 
